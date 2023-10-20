@@ -35,6 +35,8 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
        return User.query.get(int(user_id))
+   
+   # comment here for test
 
     #importing views module here to avoid circular references
     # a commonly used practice.
