@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIDDOEVENT</title>
+
+    <!-- Rena Custom CSS -->
+    <link href="style/test.css" rel="stylesheet">
+    <!-- From Bootstrap website CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+<header>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="index.html">
+                <img src="img/Logo.png" height="25" alt="KIDDOEVENT Logo"
+                     loading="lazy"/>KIDDOEVENT
+            </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="EventDetail.html">Event Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Eventupdate.html">Create Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">Booking History</a>
+                    </li>
+                </ul>
+                <!-- Right links -->
+                
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
+    <div class="jumbotron" style="background-image: url('img/Hero/BNE_1.jpg'); height: 200px;">
+        <div class="container for-about"></div>
+    </div>
+</header>
+
+<main>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4">Booking History</h3>
+
+                <!-- List group for booking history -->
+                <ul class="list-group">
+                    <!-- Booking entry 1 -->
+                    <li class="list-group-item">
+                        <h5 class="card-title">Booking ID: 333456</h5>
+                        <p class="card-text">Booking Date: 15/8/2023</p>
+                        <p class="card-text">Booking Time: 15:31 pm</p>
+                        <p class="card-text">Event Name: What is this?</p>
+                        <p class="card-text">Event Category: Class</p>
+                        <p class="card-text">Status: <span class="badge bg-primary">Consumed</span></p>
+                        <p class="card-text">Number of Tickets: 4</p>
+                        <p class="card-text">Total Amount: $80</p>
+                        <a href="EventDetail.html" class="btn btn-primary">View Details</a>
+                    </li>
+
+                    <!-- Booking entry 2 -->
+                    <li class="list-group-item">
+                        <h5 class="card-title">Booking ID: 222123</h5>
+                        <p class="card-text">Booking Date: 5/3/2023</p>
+                        <p class="card-text">Booking Time: 16:36 pm</p>
+                        <p class="card-text">Event Name: Explore nature</p>
+                        <p class="card-text">Event Category: Discovery</p>
+                        <p class="card-text">Status: <span class="badge bg-success">Confirmed</span></p>
+                        <p class="card-text">Number of Tickets: 2</p>
+                        <p class="card-text">Total Amount: $40</p>
+                        <a href="EventDetail.html" class="btn btn-primary">View Details</a>
+                    </li>
+
+                    <!-- Booking entry 3 -->
+                    <li class="list-group-item">
+                        <h5 class="card-title">Booking ID: 111789</h5>
+                        <p class="card-text">Booking Date: 19/3/2024</p>
+                        <p class="card-text">Booking Time: 11:35 am</p>
+                        <p class="card-text">Event Name: School holiday Party</p>
+                        <p class="card-text">Event Category: Party</p>
+                        <p class="card-text">Status: <span class="badge bg-danger">Cancelled</span></p>
+                        <p class="card-text">Number of Tickets: 6</p>
+                        <p class="card-text">Total Amount: $60</p>
+                        <a href="EventDetail.html" class="btn btn-primary">Rebook</a>
+                    </li>
+                </ul>
+
+                <!-- Pagination -->
+                <nav>
+                    <ul class="pagination justify-content-center mt-4">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="my-5 pt-5 text-body-secondary text-center text-small">
+    <p class="mb-1">&copy; 2023–2023 KIDDOEVENT Pty Ltd</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+I3kj7VbyVS1GssFO8SEHKjqEKZmONgC1f"
+        crossorigin="anonymous"></script>
+</body>
+</html>

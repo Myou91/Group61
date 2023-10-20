@@ -1,0 +1,91 @@
+/*Index.hytml*/
+#CarouselSlider {
+    max-height: 100vh;
+    overflow: hidden;
+}
+.carousel-caption {
+    right: initial;
+    top: 35%;
+    bottom: initial;
+    padding-bottom: 1.0rem;
+}
+.carousel-caption {
+    background-color: rgb(0 0 0 / 40%);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+.middle-section {
+    max-width: 1200px;
+    margin: 50px auto;
+}
+.post-thumb {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    width: 33.333%;
+    max-height: 300px;
+    font-family: arial;
+}
+.post-thumb:hover .caption-text {
+    opacity: 1;
+    transform: scale(1.2);
+}
+.post-thumb .caption-text h2,
+.post-thumb .caption-text p {
+    width: 100%;
+    margin: 10px 0px;
+}
+.post-thumb img{
+    float: left;
+}
+.caption-text {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.45s ease-in-out;
+    background-color: rgb(0 0 0 / 50%);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 120px;
+}
+
+
+
+/*EventUpdate.html*/
+#create-event {
+    background-color: #FAFAFA;
+    padding: 50px 0px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 50px 0px;
+    float: left;
+    width: 100%;
+}
+.create-event p {
+	color: #9a9a9a;
+}
+.create-event textarea {
+    min-height: 200px;
+    max-width: 100%;
+}
+
+/*EventDetail.html*/
+.UserComment-slider .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    background-color: #dc3545;
+    border-radius: 100%;
+}
+.UserComment-slider {
+    padding: 10px 0px 40px;
+}
+
+/*History*/
+.jumbotron {
+
+    background-size: cover;
+  }
