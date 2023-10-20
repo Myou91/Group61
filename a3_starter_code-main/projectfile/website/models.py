@@ -22,18 +22,6 @@ class User(db.Model, UserMixin):
         return f"Name: {self.name}"
 
 
-class Comment(db.Model):
-    __tablename__ = 'comments'
-    commentId = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(400))
-    created_at = db.Column(db.DateTime, default=datetime.now())
-    # add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
-    eventId = db.Column(db.Integer, db.ForeignKey('events.id'))
-
-    # string print method
-    def __repr__(self):
-        return f"Name: {self.name}"
 
 
 class Events(db.Model):
@@ -49,13 +37,26 @@ class Events(db.Model):
     status = db.Column(db.String(200))
     owner = db.Column(db.String(40))
     # add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
+    userId = db.Column(db.Integer, db.ForeignKey('users.userId'))
     # relation to call events.comments and comment.created_by
     comments = db.relationship('Comment', backref='events')
     # relation to call events.user and event.created_by
     user = db.relationship('User', backref='events')
     
     
+
+    # string print method
+    def __repr__(self):
+        return f"Name: {self.name}"
+    
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    commentId = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(400))
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    # add the foreign keys
+    userId = db.Column(db.Integer, db.ForeignKey('users.userId'))
+    eventId = db.Column(db.Integer, db.ForeignKey('events.eventId'))
 
     # string print method
     def __repr__(self):
@@ -69,8 +70,8 @@ class Bookings(db.Model):
     orderConfirmation = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.now())
     # add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
-    eventId = db.Column(db.Integer, db.ForeignKey('events.id'))
+    userId = db.Column(db.Integer, db.ForeignKey('users.userId'))
+    eventId = db.Column(db.Integer, db.ForeignKey('events.eventId'))
 
     user = db.relationship('User', backref='bookings')
 
