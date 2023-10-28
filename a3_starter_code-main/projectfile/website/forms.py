@@ -50,5 +50,5 @@ class CommentForm(FlaskForm):
 
 #Event Booking Form
 class BookingForm(FlaskForm):
-  ticket = IntegerField ('Event Ticket Purchase (6 tickets max)', validators=[DataRequired(), NumberRange(max=6)])
+  ticket = IntegerField ('Event Ticket Purchase (6 tickets max)', validators=[DataRequired(), NumberRange(min=1, max=6)])
   submit = SubmitField('Purchase Ticket')
