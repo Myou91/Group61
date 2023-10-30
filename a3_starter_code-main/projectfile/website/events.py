@@ -89,21 +89,26 @@ def booking(id):
     form = BookingForm()  
     #get the event object associated to the page and the comment
     event = db.session.scalar(db.select(Event).where(Event.id==id))
+    print(event)
+    print(event.ticket_remain)
+    print(form.ticket.data)
     if form.validate_on_submit():  
       #System rules no user book more than 6 ticket
-      if form.text.data > 6:
-        flash('Ticket request is more than 6', 'fail')
+      if form.ticket.data > 6:
+        flash('Ticket request is more than 6', 'error')
       else:
+         print("pass ticket is less than 6 check")
          #Handle ticket remain not enough to user request
-         if form.text.data <= event.ticket_remain:
-           flash('Ticket request is more than Available', 'fail')
+         if form.ticket.data > event.ticket_remain:
+           flash('Ticket request is more than Available', 'warning')
          else:
             #Create booking for user and update event.ticket_remain
             #read the comment from the form
-            event.ticket_remain -= form.text.data
-            bprice = event.price * form.text.data
+            print("save value now")
+            event.ticket_remain -= form.ticket.data
+            bprice = event.price * form.ticket.data
 
-            booking = Booking(ticket=form.text.data, reference = gen_random_string(), event=event,
+            booking = Booking(ticket=form.ticket.data, reference = gen_random_string(), event=event,
                         user=current_user, amount = bprice)          
             #here the back-referencing works - comment.event is set
             # and the link is created
