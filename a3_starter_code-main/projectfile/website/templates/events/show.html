@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block content %}
+
+<div class="container">  
+    <div class="row mt-5 mb-3">  
+      <div class="col-md-12">  
+        <div class="float-left">  
+          <h1 class="mb-0">{{ event.name }}</h1>  
+          <p>Popular Event</p>  
+        </div>  
+      </div>  
+    </div>  
+ 
+    <!-- Destination --> 
+    <div class="row">  
+      <div class="col-md-12">  
+        <div class="card my-3">  
+          <div class="card-body">  
+            <div class="media">  
+              <img class="align-self-start mr-3" src="{{ event.image }}">  
+              <div class="media-body">  
+                
+                <h5 class="mt-0">{{ event.name }}</h5>  
+                <p>Event Description: {{ event.description }}</p> 
+                <p>Event Address: {{ event.address }}</p>  
+                <p>Event Date: {{ event.date }}</p>  
+                <p>Event Start Time: {{ event.start_time }}</p>  
+                <p>Event Finish Time: {{ event.finish_time }}</p>
+                <p>{{ event.price }}</p>  
+                <p>{{ event.ticket_remain }}</p> 
+                {{ render_form(form,"/events/{0}/booking".format(event.id)) }}    
+                <a href="#" class="btn btn-danger">Book Now</a>  
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </div>
+    <hr>
+    <!-- Comments -->  
+    <div class="row">  
+      <div class="col-md-12">  
+        <h2>Comments</h1>  
+      </div>  
+    </div>  
+ 
+    <div class="row border-bottom"> 
+      {{ render_form(cform,"/events/{0}/comment".format(event.id)) }}
+      
+      {% for comment in event.comments %}
+      <div class="col-md-12">  
+        <b>{{ comment.user.name }} <span class="ml-2 text-muted">{{ comment.created_at.strftime('%d/%m/%Y %H:%M') }}</span></b>
+        <p>{{ comment.text }}</p>  
+      </div> 
+      {% endfor %} 
+    </div>  
+  </div> 
+
+{% endblock %}
