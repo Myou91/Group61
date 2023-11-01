@@ -78,9 +78,7 @@ def comment(id):
 
 #Random string generator
 def gen_random_string():
-    letters_and_digits = string.ascii_letters + string.digits
-    return ''.join(secrets.choice(letters_and_digits) for _ in range(6))
-
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
 #Handle Event booking field in Event detail page
 @eventbp.route('/<id>/booking', methods=['GET', 'POST'])  
@@ -96,7 +94,7 @@ def booking(id):
       else:
          #Handle ticket remain not enough to user request
          if form.ticket.data > event.ticket_remain:
-           flash('Ticket request is more than Available', 'warning')
+           flash('Only '+str(event.ticket_remain)+' ticket(s) available! Please order less ticket(s)', 'warning')
          else:
             #Create booking for user and update event.ticket_remain
             #read the ticket request from the form
@@ -104,18 +102,19 @@ def booking(id):
             bprice = event.price * form.ticket.data
             print(event.ticket_remain)
             print(bprice, id)
-            print(current_user)
+            print(current_user.id)
+            print(gen_random_string())
             #Call function to update event.ticket_remain after ticket sold
             update_event_ticketsold(id, event.ticket_remain)
-            booking = Booking(ticket = form.ticket.data, reference = 'abc123', event_id=event.id,
-                        user_id='2', amount = bprice) 
+            booking = Booking(ticket = form.ticket.data, reference = gen_random_string(), event_id=event.id,
+                        user_id=current_user.id, amount = bprice) 
             print(booking)         
             #here the back-referencing works - comment.event is set
             # and the link is created
             db.session.add(booking) 
             db.session.commit() 
             #flashing a message which needs to be handled by the html
-            flash('Your booking has been confirmed ', 'success')  
+            flash('Your booking has been confirmed. Payment $'+str(bprice)+' received', 'success')  
             # print('Your comment has been added', 'success') 
           # using redirect sends a GET request to event.show
       return redirect(url_for('event.show', id=id))
