@@ -29,12 +29,12 @@ class EventForm(FlaskForm):
   name = StringField('Event Name', validators=[InputRequired(), Length(max=256)])
   description = TextAreaField('Description', validators=[InputRequired(), Length(max=1024)])
   address = TextAreaField('Event Address', validators=[InputRequired(), Length(max=300)])
-  date = DateField ('Event Date', format='%d%m%Y', validators=[DataRequired()]) 
-  group = SelectField ('Age Group', choices=[('0', '0-3'),('1', '4-8')('2','9-16')], validators=[DataRequired()])
-  start_time = TimeField ('Start Time', format='%H:%M', validators=[DataRequired()])
-  finish_time = TimeField ('Finish Time', format='%H:%M', validators=[DataRequired()])
-  price = DecimalField ('Price $', places=2, validators=[DataRequired()])
-  ticket_max = IntegerField ('Event Ticket Available', validators=[DataRequired()])
+  date = DateField ('Event Date', validators=[DataRequired()]) 
+  category = SelectField ('Age Group', choices=[('0', '0-3'),('1', '4-8'),('2','9-16')], validators=[DataRequired()])
+  start_time = TimeField ('Start Time', validators=[DataRequired()])
+  finish_time = TimeField ('Finish Time', validators=[DataRequired()])
+  price = DecimalField ('Price $ (0 for free, up to 1000)', places=2, validators=[DataRequired(), NumberRange(min=0, max=1000)])
+  ticket_max = IntegerField ('Event Ticket Available (up to 10,000)', validators=[DataRequired(), NumberRange(min=1, max=10000)])
   cancel = BooleanField('Event Cancel')
 
   image = FileField('Destination Image', validators=[
