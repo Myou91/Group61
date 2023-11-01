@@ -25,14 +25,15 @@
                 
                 <h5 class="mt-0">{{ event.name }}</h5>  
                 <p>Event Description: {{ event.description }}</p> 
+                <p>Event Target: {{age_group(event.category)}}</p>
                 <p>Event Address: {{ event.address }}</p>  
                 <p>Event Date: {{ event.date }}</p>  
                 <p>Event Start Time: {{ event.start_time }}</p>  
                 <p>Event Finish Time: {{ event.finish_time }}</p>
-                <p>{{ event.price }}</p>  
-                <p>{{ event.ticket_remain }}</p> 
+                <p>Event Ticket Price: {{ event.price }}</p>  
+                <p>Event Ticket Remain: {{ event.ticket_remain }}</p> 
                 {{ render_form(form,"/events/{0}/booking".format(event.id)) }}    
-                <a href="#" class="btn btn-danger">Book Now</a>  
+
               </div>  
             </div>  
           </div>  
