@@ -24,7 +24,7 @@ class User(db.Model, UserMixin):
 
 
 
-class Events(db.Model):
+class Event(db.Model):
     __tablename__ = 'events'
     eventId = db.Column(db.Integer, primary_key=True)
     eventName = db.Column(db.String(50))
@@ -63,7 +63,7 @@ class Comment(db.Model):
         return f"Name: {self.name}"
     
 
-class Bookings(db.Model):
+class Booking(db.Model):
     __tablename__ = 'bookings'
     bookingId = db.Column(db.Integer, primary_key=True)
     numberOfTicketsBought = db.Column(db.Integer)
