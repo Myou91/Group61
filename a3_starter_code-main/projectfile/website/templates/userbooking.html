@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block content %}
+
+<div class="container-fluid">
+<div class="page-header">
+    <h4>{{ heading }}</h4>
+</div>
+
+<div class="card-group">
+    {% for booking in bookings %}
+    <div class="card mx-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ booking.reference }}</h5>
+          <p class="card-text">{{ booking.ticket }}</p>
+          <p class="card-text">{{ booking.paymentdate }}</p>
+          <p class="card-text">{{ booking.amount }}</p>
+       </div>
+    </div>
+    {% endfor %}
+ </div>
+
+{% endblock %}
