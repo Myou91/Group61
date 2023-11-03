@@ -82,9 +82,10 @@
                   src="{{ event.image }}" alt="event picture">
                <div class="card-body">
                   <h5 class="card-title">Event Name: {{ event.name }}</h5>
-                  <p class="card-text">Event Description: {{ event.date }}</p>
-                  <p class="card-text">Event Date: {{ event.description }}</p>
+                  <p class="card-text">Event Date: {{ event.date }}</p>
+                  <p class="card-text">Event Description: {{ event.description }}</p>
                   <p class="card-text">Event Ticket Remain: {{ event.ticket_remain }}</p>
+                  <p class="card-text">Event Ticket Price: $ {{ event.price }}</p>
                </div>
                <div class="card-footer"><a href="{{ url_for('event.show', id=event.id) }}" class ="btn btn-danger"> View Details </a></div>
             </div>
