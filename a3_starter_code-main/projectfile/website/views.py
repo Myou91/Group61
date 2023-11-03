@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from .models import Event
+from .models import Event, Booking
 from . import db
+from datetime import datetime
 
 mainbp = Blueprint('main', __name__)
 
@@ -18,6 +19,13 @@ def search():
         return render_template('index.html', events=events)
     else:
         return redirect(url_for('main.index'))
+
+
+@mainbp.route('/ebks')
+def ebks():
+    bks = db.session.scalars(db.select(Booking)).all()    
+    return render_template('userbooking.html', bks=bks)
+
 
 
 @mainbp.route('/age-group')
