@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from .models import Event, Comment, Booking
 from .forms import EventForm, CommentForm, BookingForm
 from . import db
@@ -17,6 +17,19 @@ def show(id):
     cform = CommentForm()
     eform = BookingForm()    
     return render_template('events/show.html', event=event, cform=cform, form=eform)
+
+@eventbp.route('/update/<id>', methods=['GET', 'POST'])
+def update(id):
+    event = db.session.scalar(db.select(Event).where(Event.id==id))
+    form = EventForm(obj=event)
+    if form.validate_on_submit():
+        form.populate_obj(event)
+        db.session.commit()
+        flash('Event updated successfully!', 'success')
+    return redirect(url_for('event.show', id=id))
+
+
+
 
 @eventbp.route('/create', methods=['GET', 'POST'])
 @login_required
@@ -123,3 +136,11 @@ def update_event_ticketsold(id, sold):
     event = db.session.scalar(db.select(Event).where(Event.id==id))
     event.ticket_remain = sold
     db.session.commit() 
+
+@eventbp.route('/<id>/calculate_ticket_price', methods=['POST'])
+def calculate_ticket_price(id):
+    event = db.session.scalar(db.select(Event).where(Event.id==id))
+    ticket_order = request.form['ticket']
+    # Calculate total price based on ticket order
+    total_price = int(ticket_order) * event.price
+    return jsonify({'total_price': total_price})
