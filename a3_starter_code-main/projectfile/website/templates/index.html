@@ -1,7 +1,58 @@
 {% extends 'base.html' %}
 
 {% block header %}
-      <!--Jumbotron-->
+
+
+      <!-- Code from A2 for CarouslSlider -->
+      <div id="CarouselSlider" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+         <div class="carousel-indicators">
+             <button type="button" data-bs-target="#CarouselSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+             <button type="button" data-bs-target="#CarouselSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+             <button type="button" data-bs-target="#CarouselSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+             <button type="button" data-bs-target="#CarouselSlider" data-bs-slide-to="3" aria-label="Slide 3"></button>
+         </div>
+         <div class="carousel-inner">
+             <div class="carousel-item active" data-bs-interval="5000">
+                 <img src="{{url_for('static',filename='img/Hero/A_1.jpg')}}" class="d-block w-100" alt="Carousel One">
+                 <div class="carousel-caption text-white d-none d-md-block col-6">
+                     <h3 class="fs-1">Time to release kids energy?</h3>
+                     <a href="#Eventsection" class="btn btn-warning mt-3">Click To Learn More</a>
+                 </div>
+             </div>
+             <div class="carousel-item" data-bs-interval="5000">
+                 <img src="{{url_for('static',filename='img/Hero/B_1.jpg')}}" class="d-block w-100" alt="Carousel Two">
+                 <div class="carousel-caption text-white d-none d-md-block col-6">
+                     <h3 class="fs-1">What is your local park like?</h3>
+                     <a href="#Eventsection" class="btn btn-warning mt-3">Click To Learn More</a>
+                 </div>
+             </div>
+             <div class="carousel-item" data-bs-interval="5000">
+                 <img src="{{url_for('static',filename='img/Hero/C_1.jpg')}}" class="d-block w-100" alt="Carousel Three">
+                 <div class="carousel-caption text-white d-none d-md-block col-6">
+                     <h3 class="fs-1">Want to let them experiece more?</h3>
+                     <a href="#Eventsection" class="btn btn-warning mt-3">Click To Learn More</a>
+                 </div>
+             </div>
+             <div class="carousel-item" data-bs-interval="5000">
+                 <img src="{{url_for('static',filename='img/Hero/D_1.jpg')}}" class="d-block w-100" alt="Carousel Three">
+                 <div class="carousel-caption text-white d-none d-md-block col-6">
+                     <h3 class="fs-1">Allow them to be future star?</h3>
+                     <a href="#Eventsection" class="btn btn-warning mt-3">Click To Learn More</a>
+                 </div>
+             </div>
+         </div>
+         <button class="carousel-control-prev" type="button" data-bs-target="#CarouselSlider" data-bs-slide="prev">
+             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+             <span class="visually-hidden">Previous</span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#CarouselSlider" data-bs-slide="next">
+             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+             <span class="visually-hidden">Next</span>
+         </button>
+       </div>
+
+
+             <!--Jumbotron-->
       <div class="container">
          <div class="row justify-content-center mt-5 pb-4">
             <div class="col-md-8">
